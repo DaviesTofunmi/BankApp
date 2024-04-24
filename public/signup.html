@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-storage-compat.js"></script>
+<style>
+    body {
+        background-color: rgb(66, 20, 178);
+
+    }
+
+    .bigDiv {
+        height: 100vh;
+        width: 90%;
+
+        display: flex;
+        align-items: center;
+        margin: auto;
+    }
+
+    .left {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        width: 50%;
+    }
+
+    .right {
+     
+        width: 50%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .container {
+      /* display: none; */
+        color: white;
+        padding-top: 5rem;
+        width: 100%;
+        margin: auto;
+
+
+
+
+        font-family: sans-serif;
+
+
+    }
+
+    .inputs {
+
+        width: 60vh;
+        height: 5vh;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        justify-content: space-between;
+
+    }
+    .container input{
+        color: white;
+    }
+
+   .container input {
+        cursor: pointer;
+
+        background-color: rgba(140, 115, 239, 0.304);
+        -webkit-backdrop-filter: blur(50px);
+        backdrop-filter: blur(5px);
+      
+        margin-left: 2rem;
+
+        width: 60%;
+        height: 4vh;
+        border: none;
+        border-radius: 0.5rem;
+
+    }
+
+    #terms {
+        width: 10%;
+        height: 2vh;
+    }
+
+    .eyes {
+
+        width: 75%;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-left: 5.6rem;
+
+
+    }
+
+
+    #password {
+        width: 60vh;
+
+    }
+
+    .pickImage {
+        margin-top: 1%;
+        width: 100%;
+
+        background: none;
+    }
+
+    .Uploads {
+        display: flex;
+        align-items: center;
+        margin-top: 1%;
+        width: 60%;
+        margin: auto;
+        margin-bottom: 15%;
+       
+
+
+    }
+    .right2{
+ 
+        width: 90%;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+       text-align: center;
+        font-family: sans-serif;
+        color: white;
+        animation: moveup;
+        transition: all 3s ease-in;
+        animation-duration: 1.8s;
+    }
+    @keyframes moveup {
+  0%   {margin-bottom: -40rem; opacity: 0.05; display: none;}
+
+
+  100% {margin-bottom: 0rem;}
+}
+    .ProfilePic{
+        background-color: grey;
+        width: 150px;
+        height: 150px;
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+    }
+    #ProfilePic{
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+    }
+    .Upload{ 
+    height: 4vh;
+    width: 30%;
+    margin: auto;
+    background-color: rgb(56, 162, 56);
+    color: white;
+ 
+
+    border: none;
+    border-radius: 0.3rem;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
+   
+
+    }
+
+
+
+.pin-code{ 
+  padding: 0; 
+  margin: 0 auto; 
+  display: flex;
+  gap: 28px;
+  justify-content:center;
+  
+} 
+ 
+.pin-code input { 
+  border: none; 
+  text-align: center; 
+  width: 48px;
+  height:48px;
+  font-size: 36px; 
+  background-color: #F3F3F3;
+  margin-right:5px;
+  border-radius: 0.5rem;
+} 
+
+
+
+.pin-code input:focus { 
+  border: 1px solid #573D8B;
+  outline:none;
+} 
+
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+.Proceed{
+    height: 5vh;
+    width: 28%;
+    margin: auto;
+    margin-top: 2rem;
+    background-image: linear-gradient(to right, rgba(178, 54, 203, 0.882), rgba(96, 14, 219, 0.905));
+    color: white;
+
+    border: none;
+    border-radius: 0.3rem;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
+   
+
+}
+</style>
+
+<body>
+    <div class="bigDiv">
+
+        <div class="left">
+            <img src="images/Tof's Bank2.png" alt="">
+        </div>
+        <div class="right">
+            <form onsubmit="signUp(event)">
+                <div id="container" class="container">
+                    <h1 style="margin-bottom: 4rem;">
+                        Sign Up
+                    </h1>
+                    <div class="inputs">
+                        <label for="firstName">First Name</label>
+                        <input id="firstName" type="text" required>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="inputs">
+                        <label for="lastName">Last Name</label>
+                        <input id="lastName" type="text" required>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="inputs">
+                        <label for="email">Email</label>
+                        <input id="email" type="email" required>
+                    </div>
+                    <br>
+                    <br>
+                    <div id="eyes" class="inputs">
+                        <label for="password">Password</label>
+                        <div class="eyes">
+                            <input id="password" type="password" required>
+                            <span id="show" onclick="showPassword()" class="material-symbols-outlined">
+                                visibility
+                            </span>
+                            <span id="hide" onclick="showPassword()" class="material-symbols-outlined">
+                                visibility_off
+                            </span>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="inputs">
+                        <label for="cpassword">Confirm Password</label>
+                        <input id="cpassword" type="password" required>
+                    </div>
+                    <br>
+                    <br>
+           
+
+                        <input id="terms" type="checkbox">
+                        <label for="terms">Accept terms & conditions</label>
+
+                        <button type="submit">Submit</button>
+                    </div>
+                </div>
+
+            </form>
+            <div id="right2" class="right2">
+              <h2>Complete Your Profile</h2>
+              <div class="ProfilePic">
+                <img  id="ProfilePic" src="images/—Pngtree—vector edit profile icon_4102545.png" alt="select profile pic">
+              </div>
+              <div class="Uploads">
+                    <input id="pickImage" class="pickImage" onchange="filePick()" type="file">
+                    <button class="Upload" onclick="Upload(event)">Upload</button>
+            </div>
+            <h2>Set your pin</h2>
+        
+            <div class="pin-code">
+                  <input id="input1" type="number" maxlength="1" autofocus>
+                <input id="input2"  type="number" maxlength="1">
+                  <input id="input3"  type="number" maxlength="1">
+                <input id="input4"  type="number" maxlength="1">
+             </div>
+             <button onclick="ProceedToSignin()" class="Proceed">Proceed to Sign In</button>
+        </div>
+
+    </div>
+    <script>
+
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDcgBapwpH3BoKX9zWA4NMKACztRicpTBY",
+            authDomain: "bankapp-63691.firebaseapp.com",
+            projectId: "bankapp-63691",
+            storageBucket: "bankapp-63691.appspot.com",
+            messagingSenderId: "1006776288110",
+            appId: "1:1006776288110:web:e6f4a54da078ce5691777f",
+            storaageBucket: "gs://bankapp-63691.appspot.com"
+        };
+
+
+
+        firebase.initializeApp(firebaseConfig);
+        // Get a reference to the storage service, which is used to create references in your storage bucket
+        var storage = firebase.storage();
+
+        // Create a storage reference from our storage service
+
+
+
+        // Initialize Cloud Firestore and get a reference to the service
+        const db = firebase.firestore();
+    </script>
+    <script>
+        let firstName = document.getElementById('firstName');
+        let lastName = document.getElementById('lastName')
+        let email = document.getElementById('email')
+        let password = document.getElementById('password')
+        let pickImage= document.getElementById('pickImage')
+        let ProfilePic= document.getElementById('ProfilePic')
+        let container= document.getElementById('container')
+        let right2= document.getElementById('right2')
+        let accountNumber;
+        let accountBalance;
+        let input1= document.getElementById('input1')
+        let input2= document.getElementById('input2')
+        let input3= document.getElementById('input3')
+        let input4= document.getElementById('input4')
+        let UserPin
+        
+
+        //var pinContainer = document.getElementsByClassName("pin-code")[0];
+var pinContainer = document.querySelector(".pin-code");
+console.log('There is ' + pinContainer.length + ' Pin Container on the page.');
+
+pinContainer.addEventListener('keyup', function (event) {
+    var target = event.srcElement;
+    
+    var maxLength = parseInt(target.attributes["maxlength"].value, 10);
+    var myLength = target.value.length;
+
+    if (myLength >= maxLength) {
+        var next = target;
+        while (next = next.nextElementSibling) {
+            if (next == null) break;
+            if (next.tagName.toLowerCase() == "input") {
+                next.focus();
+                break;
+            }
+        }
+    }
+
+    if (myLength === 0) {
+        var next = target;
+        while (next = next.previousElementSibling) {
+            if (next == null) break;
+            if (next.tagName.toLowerCase() == "input") {
+                next.focus();
+                break;
+            }
+        }
+    }
+}, false);
+
+pinContainer.addEventListener('keydown', function (event) {
+    var target = event.srcElement;
+    target.value = "";
+}, false);
+
+        function generateAccount() {
+            accountNumber = Math.floor(Math.random() * 10000000000) + 1;
+            return accountNumber;
+        }
+
+let userData
+
+  function signUp(pre) {
+            pre.preventDefault()
+            firebase.auth().createUserWithEmailAndPassword(email.value, password.value)
+                .then((userCredential) => {
+                    // Signed in 
+                    var user = userCredential.user;
+                    alert('sign up successfull')
+                    
+
+
+                    // ...
+                })
+                .catch((error) => {
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    console.log(errorMessage);
+                    // ..
+                });
+
+            // Add a new document in collection "cities"
+        db.collection("users").doc(email.value).set({
+                firstName: firstName.value,
+                lastName: lastName.value,
+                email: email.value,
+                password: password.value,
+                accountnumber: generateAccount(),
+                accountBalance: 5000,
+                profile_pic: 'none' ,
+                pin: 'none'
+                
+
+            })
+                .then((docRef) => {
+                    console.log("Document successfully written!");
+                })
+                .catch((error) => {
+                    console.error("Error writing document: ", error);
+                });
+                container.style.display='none'
+                right2.style.display='block'
+
+                // window.location.href= 'login.html'
+
+
+        }
+ 
+
+
+        
+        let imgUrl
+        let NewFile
+        let file
+        let url
+        let newUrl
+        function filePick() {
+            let file = event.target.files[0]
+            let readFile = new FileReader()
+        
+            console.log(readFile);
+
+            readFile.addEventListener("load", (e) => {
+                let data = e.target.result
+                imgUrl = data
+                NewFile= file.name
+                console.log(NewFile);
+                
+
+            })
+          readFile.readAsDataURL(file)
+     
+
+
+
+        }
+        function getUser(){
+            var docRef = db.collection("users").doc(email.value);
+
+docRef.get().then((doc) => {
+    if (doc.exists) {
+        userData= doc.data()
+        console.log("Document data:", doc.data());
+    } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+    }
+}).catch((error) => {
+    console.log("Error getting document:", error);
+});
+        }
+
+     
+     
+      async function Upload(pre) {
+       
+
+            pre.preventDefault()
+            getUser()
+
+
+
+
+
+
+
+
+
+               // Base64 formatted string
+        var storageRef = firebase.storage().ref('/images/' + NewFile);
+            var message = imgUrl;
+           await storageRef.putString(message, 'data_url').then((snapshot) => {
+                console.log('Uploaded a  string!');
+            });
+          
+            UploadImg()
+
+        }
+
+
+       async function UploadImg(){
+        var pathReference = storage.ref('images');
+                
+        
+           await  pathReference.child(NewFile).getDownloadURL()
+  .then((url) => {
+    newUrl= url
+    console.log(url);
+    var myUserRef =  db.collection("users").doc(email.value);
+
+// Set the "capital" field of the city 'DC'
+ return  myUserRef.update({
+   profile_pic: newUrl.toString()
+    
+})
+.then(() => {
+    ProfilePic.src= userData.profile_pic
+    console.log("Document successfully updated!");
+})
+.catch((error) => {
+    // The document probably doesn't exist.
+    console.error("Error updating document: ", error);
+});
+  
+  })
+
+        }
+        function ProceedToSignin(){
+            UserPin= input1.value + input2.value + input3.value + input4.value
+            console.log(UserPin);
+            var myUserRef =  db.collection("users").doc(email.value);
+
+// Set the "capital" field of the city 'DC'
+return  myUserRef.update({
+    pin: UserPin
+    
+})
+.then(() => {
+
+    console.log("Document successfully updated!");
+})
+.catch((error) => {
+    // The document probably doesn't exist.
+    console.error("Error updating document: ", error);
+});
+        }
+        
+
+
+    </script>

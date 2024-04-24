@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link rel="stylesheet" href="charts.min.css">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+</head>
+<script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-auth.js"></script>
+
+
+
+
+<body id="body">
+    <nav>
+        <img class="logo" src="images/Tof's Bank2.png" alt="">
+        <div class="navRight">
+            <div class="navIcons">
+                <span class="material-symbols-outlined">
+                    search
+                </span>
+                <span class="material-symbols-outlined">
+                    notifications
+                </span>
+            </div>
+            <div id="navProfile" class="navProfile">
+                <div class="profileDiv"> <img src="" alt="p"></div>
+                <div class="profileTexts">
+                    <p id="profileName"></p>
+                    <p id="profileEmail">i</p>
+                </div>
+                <span class="material-symbols-outlined">
+                    expand_more
+                </span>
+            </div>
+        </div>
+
+    </nav>
+
+
+
+    <div class="alphaBody">
+        <div id="left" class="left">
+            <div class="leftContent">
+                <div class="leftTop">
+                    <div onclick="dashboard()" class="leftTexts">
+                        <span class="material-symbols-outlined">
+                            home
+                        </span>
+                        <p>Dashboard</p>
+                    </div>
+                    <div class="leftTexts">
+                        <span class="material-symbols-outlined">
+                            account_balance_wallet
+                        </span>
+                        <p>Wallets</p>
+                    </div>
+                    <div class="leftTexts">
+                        <span class="material-symbols-outlined">
+                            monitoring
+                        </span>
+                        <p>Analytics</p>
+                    </div>
+                    <div onclick="transfersPage()" class="leftTexts">
+                        <span class="material-symbols-outlined">
+                            credit_card
+                        </span>
+                        <p>Bank Transfers</p>
+                    </div>
+                    <div class="leftTexts">
+                        <span class="material-symbols-outlined">
+                            settings
+                        </span>
+                        <p>settings</p>
+                    </div>
+                </div>
+                <div class="leftBottom">
+                    <div class="leftTexts">
+                        <span class="material-symbols-outlined">
+                            support
+                        </span>
+                        <p>Support</p>
+                    </div>
+                    <div onclick="DarkMode()" id="Mode" class="leftTexts">
+                        <span class="material-symbols-outlined">
+                            book
+                        </span>
+                        <p>Mode</p>
+                    </div>
+
+
+                </div>
+            </div>
+
+
+        </div>
+        <div class="middle">
+            <div id="dashboardDisplay">
+                <div id="middleTop" class="middleTop">
+                    <div class="balanceDiv">
+                        <div class="balanceSummary">
+                            <h4>Your Balance Summary</h4>
+                            <span class="material-symbols-outlined">
+                                tune
+                            </span>
+                        </div>
+                        <div class="balanceBottom">
+                        <div class="acctDetails">
+                            <div class="dashboard_ProfilePic">
+                                <img src="images/WhereWeBelong-b-940 copy.jpg" alt="pp">
+                            </div>
+                      <div class="details">
+                        <p>Account Balance</p>
+                        <h1 id="accountBalance">N00.0</h1>
+                      </div>
+                      <div class="details">
+                        <p> Name</p>
+                        <h1 id="userName">N/A</h1>
+                      </div>
+                      <div class="details">
+                        <p>Account Number</p>
+                        <h1 id="accountNumber">N/A</h1>
+                      </div>
+                 
+                        </div>
+                        <div class="charts">
+                         
+                            <div class="chartContainer">
+                               <div class="chartContainerLeft">
+                                <h4>N12,000</h4>
+                                <p>Groceries</p>
+                               </div>
+                                <div class="pie" style="--p:20"> 20%</div>
+                            </div>
+                            <div class="chartContainer">
+                                <div class="chartContainerLeft">
+                                 <h4>N6,300</h4>
+                                 <p>Electricity</p>
+                                </div>
+                                <div class="pie" style="--p:40;--c:rgb(255, 177, 60);"> 40%</div>
+                             </div>
+                             <div class="chartContainer">
+                                <div class="chartContainerLeft">
+                                 <h4>N2,600</h4>
+                                 <p>Electricity</p>
+                                </div>
+                                <div class="pie" style="--p:80;--c:rgb(82, 211, 57);"> 88%</div>
+                             </div>
+                             <div class="chartContainer">
+                                <div class="chartContainerLeft">
+                                 <h4>N7,000</h4>
+                                 <p>Electricity</p>
+                                </div>
+                                <div class="pie" style="--p:30;--c:rgb(192, 130, 242);"> 35%</div>
+                             </div>
+                        </div>
+                    
+<!-- 
+<div class="pie no-round" style="--p:60;--c:purple;--b:15px"> 60%</div>
+<div class="pie animate no-round" style="--p:80;--c:orange;"> 80%</div>
+<div class="pie animate" style="--p:90;--c:lightgreen"> 90%</div> -->
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+                <div class="middleBottom">
+                    <div id="middleBottoms" class="middleBottoms">
+                        <div class="middleBottomsContent">
+                            <div class="category">
+                                <p>Category</p>
+                                <span class="material-symbols-outlined">
+                                    tune
+                                </span>
+                            </div>
+                            <div class="categories">
+                                <div class="categoryItem">
+                                    <span class="material-symbols-outlined">
+                                        sports_esports
+                                    </span>
+                                    <p>Games</p>
+                                </div>
+                                <div class="categoryItem">
+                                    <span class="material-symbols-outlined">
+                                        receipt_long
+                                    </span>
+                                    <p>Bills</p>
+                                </div>
+                                <div class="categoryItem">
+                                    <span class="material-symbols-outlined">
+                                        currency_exchange
+                                    </span>
+                                    <p>Transfers</p>
+                                </div>
+                                <div class="categoryItem">
+                                    <span class="material-symbols-outlined">
+                                        smartphone
+                                    </span>
+                                    <p>Airtime</p>
+                                </div>
+                                <div class="categoryItem">
+                                    <span class="material-symbols-outlined">
+                                        payments
+                                    </span>
+                                    <p>Loans</p>
+                                </div>
+                                <div class="categoryItem">
+                                    <span class="material-symbols-outlined">
+                                        history
+                                    </span>
+                                    <p>Transcations</p>
+                                </div>
+                                <div class="categoryItem">
+                                    <span class="material-symbols-outlined">
+                                        currency_bitcoin
+                                    </span>
+                                    <p>Bitcoin</p>
+                                </div>
+                                <div class="categoryItem">
+                                    <span class="material-symbols-outlined">
+                                        mail
+                                    </span>
+                                    <p>Statements</p>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                    <div id="middleBottoms2" class="middleBottoms">
+                        <div class="midbtm2content">
+                            <div class="networkLogos">
+                                <img id="NetworkImg" class="mtn" src="./images/mtn-3 (1).png" alt="">
+                            </div>
+                            <div class="selectForm">
+                                <select onchange="selectNetwork()" class="selectNetwork" name="Network" id="Networks">
+                                    <option value="Mtn">Mtn</option>
+                                    <option value="Airtel">Airtel</option>
+                                    <option value="Glo">Glo</option>
+                                    <option value="9mobile">9Mobile</option>
+                                </select>
+                                <input placeholder="Amount" id="airtimeAmount" type="number">
+                                <input placeholder="Phone Number" id="phoneNumberInput" type="number">
+                                <button onclick="buyAirtime()" class="proceed">Proceed</button>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+            <div id="transfersDisplay">
+                <div class="transferContent">
+                    <h3>Transfer Money</h3>
+                    <div id="transferAcc" class="transferAcc">
+                        <h2 id="transferAccountBalance">N00.0</h2>
+                        <h6 style="color: rgba(176, 175, 175, 0.642); font-size: 11px;">PREMIER SAVINGS</h6>
+                    </div>
+                    <div id="transferForm" class="transferForm">
+
+                        <div class="transferFormContent">
+                            <select name="BankSelect" id="BankSelect">
+                                <option>Tof's Bank</option>
+                            </select>
+                            <input oninput="displayBeneficiary()" id="BenAccNumber"
+                                placeholder="Beneficiary Account Number" type="text">
+                            <p id="Beneficiary"></p>
+                            <input id="TransferAmount" type="text" placeholder="Amount">
+                            <input type="text" placeholder="Narration">
+                            <button onclick="Transfer()" class="proceed" id="transferBtn">Proceed</button>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+        </div>
+
+        <div id="right" class="right">
+            <div class="rightContent">
+
+                <div class="rightTop">
+                    <h4 style="color: white;">Debit Card</h4>
+                    <div class="card">
+                        <div class="cardContent">
+                            <div class="cardTop">
+                                <img class="chip" src="images/chip.png" alt="">
+                                <img class="visa" src="images/1153467.png" alt="">
+                            </div>
+                            <div class="cardMiddle">
+                                <p>**** **** **** 2378</p>
+                            </div>
+                            <div class="cardBottom">
+                                <div class="cardBottoms">
+                                    <p>Card Holder Name</p>
+                                    <h4 id="cardName">N/A</h4>
+                                </div>
+                                <div class="cardBottoms">
+                                    <p>Expiry Date</p>
+                                    <h4>02/30</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div id="rightBottom" class="rightBottom">
+                   
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <script>
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyDcgBapwpH3BoKX9zWA4NMKACztRicpTBY",
+            authDomain: "bankapp-63691.firebaseapp.com",
+            projectId: "bankapp-63691",
+            storageBucket: "bankapp-63691.appspot.com",
+            messagingSenderId: "1006776288110",
+            appId: "1:1006776288110:web:e6f4a54da078ce5691777f"
+        };
+
+        // Initialize Firebase
+        const app = firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+    </script>
+
+    <script>
+        let dashboardDisplay = document.getElementById("dashboardDisplay");
+        let transfersDisplay = document.getElementById('transfersDisplay')
+        let transferAcc =  document.getElementById('transferAcc')
+        let transferForm = document.getElementById('transferForm')
+
+        function dashboard() {
+            dashboardDisplay.style.display = 'flex'
+            transfersDisplay.style.display = 'none'
+        }
+        dashboard()
+
+        function transfersPage() {
+            dashboardDisplay.style.display = 'none'
+            transfersDisplay.style.display = 'flex'
+
+
+        }
+
+        let Mode = document.getElementById('Mode')
+        let body = document.getElementById('body')
+        let left = document.getElementById('left')
+        let middleBottoms = document.getElementById('middleBottoms')
+        let middleBottoms2 = document.getElementById('middleBottoms2')
+        let middleTop = document.getElementById('middleTop')
+        let right = document.getElementById('right')
+        let navProfile = document.getElementById('navProfile')
+        let dark = false;
+        let profileEmail = document.getElementById('profileEmail')
+        let profileName = document.getElementById('profileName')
+        let accountBalance = document.getElementById('accountBalance')
+        let transferAccountBalance = document.getElementById('transferAccountBalance')
+        let NetworkImg = document.getElementById('NetworkImg')
+        let Networks = document.getElementById('Networks')
+        let airtimeAmount = document.getElementById('airtimeAmount');
+        let BenAccNumber = document.getElementById('BenAccNumber')
+        let TransferAmount = document.getElementById('TransferAmount')
+        let Beneficiary = document.getElementById('Beneficiary')
+        let transactTitle= document.getElementById('transactTitle')
+        let transactionType= document.getElementById('transactionType')
+        let transactAmount= document.getElementById('transactAmount')
+        let rightBottom= document.getElementById('rightBottom')
+        let userName= document.getElementById('userName')
+        let accountNumber= document.getElementById('accountNumber')
+        
+
+
+
+
+
+
+        let myNetworks = []
+        let myUsers = []
+
+
+
+
+
+
+
+
+
+        function isloggedin() {
+            firebase.auth().onAuthStateChanged((user) => {
+                myuser = user.email
+
+
+                if (user) {
+                    // User is signed in, see docs for a list of available properties
+                    // https://firebase.google.com/docs/reference/js/v8/firebase.User
+                    var uid = user.uid;
+                    console.log(user.email);
+                    profileEmail.innerHTML = user.email
+                  
+
+
+
+                    fetchUser()
+                    displayTransactionHistory()
+
+
+                    // ...
+                } else {
+                    alert('no user found')
+                    // User is signed out
+                    // ...
+                }
+
+
+
+
+
+            });
+
+
+
+        }
+        isloggedin()
+
+        function fetchUser() {
+            //Getting user data from firestore
+            const user = firebase.auth().currentUser;
+            var docRef = db.collection("users").doc(user.email);
+
+
+            docRef.get().then((doc) => {
+                userData = doc.data();
+                if (doc.exists) {
+
+
+
+                    console.log("Document data:", userData);
+                    accBalance = doc.data().accountBalance
+                    userName.innerHTML= doc.data().firstName
+                    // accountNumber.innerHTML= userData.accountnumber.splice(2,6)
+                    profileName.innerHTML = doc.data().firstName + " " + doc.data().lastName
+                    cardName.innerHTML = doc.data().firstName + " " + doc.data().lastName
+                    accountBalance.innerHTML = 'N' + doc.data().accountBalance
+                    transferAccountBalance.innerHTML = 'N' + doc.data().accountBalance
+                    currentAccountBalance = Number(accBalance) - Number(airtimeAmount.value)
+
+                } else {
+                    // doc.data() will be undefined in this case
+                    console.log("No such document!");
+                }
+            }).catch((error) => {
+                console.log("Error getting document:", error);
+            });
+
+
+        }
+
+
+
+        function buyAirtime() {
+
+            const user = firebase.auth().currentUser;
+            var docRef = db.collection("users").doc(user.email);
+
+
+            currentAccountBalance = Number(accBalance) - Number(airtimeAmount.value)
+            console.log(currentAccountBalance);
+            var userRef = db.collection("users").doc(myuser);
+            if (currentAccountBalance < 0) {
+                console.error('insufficient funds');
+
+            }
+            else {
+                saveAirtimeTransaction()
+                // Set the "capital" field of the city 'DC'
+                return userRef.update({
+                    accountBalance: currentAccountBalance
+                })
+                    .then(() => {
+                        db.collection("users").doc(myuser)
+                            .onSnapshot((doc) => {
+                                accountBalance.innerHTML = 'N' + doc.data().accountBalance
+                                transferAccountBalance.innerHTML = 'N' + doc.data().accountBalance
+
+                            });
+                        console.log("Document successfully updated!", userData.accBalance);
+                    })
+                    .catch((error) => {
+                        // The document probably doesn't exist.
+                        console.error("Error updating document: ", error);
+                    });
+
+            }
+
+
+            airtimeAmount.value = ''
+
+
+        }
+
+
+        function selectNetwork() {
+            const selectedValue = Networks.value;
+
+            if (selectedValue === 'Mtn') {
+                NetworkImg.src = './images/mtn-3 (1).png';
+                NetworkImg.style.width = '90px'
+            } else if (selectedValue === 'Airtel') {
+                NetworkImg.src = './images/airtel-logo-icon.webp';
+                NetworkImg.style.width = '48px'
+            }
+            else if (selectedValue === 'Glo') {
+                NetworkImg.src = './images/Glo_Limited.png';
+                NetworkImg.style.width = '90px'
+            }
+            else if (selectedValue === '9mobile') {
+                NetworkImg.src = './images/9mobile-Logo.png';
+                NetworkImg.style.width = '48px'
+            }
+        }
+
+
+
+
+        //     function Transfer() {
+        //         const user = firebase.auth().currentUser;
+        //         const BenAccNumberValue= BenAccNumber.value
+        //         console.log(user.accountBalance);
+        //         db.collection("users").where("accountnumber", "==", 
+        //         `${BenAccNumberValue}`)
+        // .get()
+        // .then((querySnapshot) => {
+        //     querySnapshot.forEach((doc) => {
+
+
+        //     });
+        //     if (querySnapshot.empty) {
+        //     console.log("No matching documents.");
+        //   } else {
+        //     querySnapshot.forEach((doc) => {
+        //       console.log(doc.id, " => ", doc.data());
+
+
+        //       // Do something with the matched user document
+        //     });
+        //   }
+        // })
+        // .catch((error) => {
+        //     console.log("Error getting documents: ", error);
+        // });  
+
+
+        //     }
+        function GetBeneficiary() {
+
+            BenAccNumberValue = Number(BenAccNumber.value)
+            // BenAccBalance= Number(doc.data().accountBalance)+Number(TransferAmount)
+
+            
+            db.collection("users").where("accountnumber", "==", BenAccNumberValue)
+    .get()
+    .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            // doc.data() is never undefined for query doc snapshots
+            console.log(doc.id, " => ", doc.data());
+        });
+    })
+    .catch((error) => {
+        console.log("Error getting documents: ", error);
+    });
+
+
+        }
+        function displayBeneficiary() {
+            db.collection("users").get().then((querySnapshot) => {
+                querySnapshot.forEach((doc) => {
+                    if (doc.data().accountnumber == BenAccNumber.value) {
+                        BenName = doc.data()
+                        Beneficiary.innerHTML = doc.data().lastName + " " + doc.data().firstName
+                        // console.log(doc.id, " => ", doc.data());
+
+                    }
+                    // doc.data() is never undefined for query doc snapshots
+                   
+                });
+            });
+
+        }
+
+
+        function Transfer() {
+
+
+            BenAccNumberValue = Number(BenAccNumber.value)
+            // BenAccBalance= Number(doc.data().accountBalance)+Number(TransferAmount)
+
+            db.collection("users").where("accountnumber", "==", BenAccNumberValue)
+                .get()
+                .then((querySnapshot) => {
+                    querySnapshot.forEach((doc) => {
+
+
+
+                        var userRef = db.collection("users").doc(
+                            doc.id
+                        );
+                        deductAccBalance()
+                        console.log("Document successfully updated!", doc.data().accountBalance);
+                        // Atomically increment the population of the city by 50.
+                        userRef.update({
+                            accountBalance: firebase.firestore.FieldValue.increment(Number(TransferAmount.value))
+
+                        })
+
+
+                            .then(() => {
+                                db.collection("users").doc(doc.id)
+                                    .onSnapshot((doc) => {
+                                        console.log('new ben account balance', doc.data().accountBalance);
+                                        alert(`You sent ${TransferAmount.value} to ${doc.data().firstName}`);
+
+                                    });
+
+
+                            })
+                            .catch((error) => {
+                                // The document probably doesn't exist.
+                                console.error("Error updating document: ", error);
+                            });
+
+                        // doc.data() is never undefined for query doc snapshots
+                        console.log(doc.id, " => ", doc.data().firstName);
+                    });
+                })
+                .catch((error) => {
+                    console.log("Error getting documents: ", error);
+                });
+
+            SaveUserTransaction()
+            SaveRecieverTransaction()
+
+
+
+
+        }
+        function deductAccBalance() {
+            const user = firebase.auth().currentUser;
+            var docRef = db.collection("users").doc(user.email)
+                .get()
+                .then((doc) => {
+                    currentAccountBalance = Number(doc.data().accountBalance) - Number(TransferAmount.value)
+                    console.log(currentAccountBalance);
+                    var userRef = db.collection("users").doc(user.email);
+                    if (currentAccountBalance < 0) {
+                        alert('insufficient funds');
+
+                    }
+                    else {
+                        // Set the "capital" field of the city 'DC'
+                        return userRef.update({
+                            accountBalance: currentAccountBalance
+                        })
+                            .then(() => {
+
+                                db.collection("users").doc(myuser)
+                                    .onSnapshot((doc) => {
+                                        accountBalance.innerHTML = 'N' + doc.data().accountBalance
+                                        transferAccountBalance.innerHTML = 'N' + doc.data().accountBalance
+
+
+
+
+
+
+                                        console.log("Document successfully updated!", doc.data().accountBalance);
+
+                                    });
+
+                            })
+                            .catch((error) => {
+                                // The document probably doesn't exist.
+                                console.error("Error updating document: ", error);
+                            });
+                    }
+                })
+        }
+        function saveAirtimeTransaction(){
+            
+            const user = firebase.auth().currentUser;
+         
+            db.collection(user.email).add({
+                type: "Airtime",
+                date: new Date().toLocaleDateString,
+                Amount: airtimeAmount.value,
+                title: 'You',
+                isAirtime: true
+                
+            })
+                .then((docRef) => {
+                    console.log("Document written with ID: ", docRef.id);
+                })
+                .catch((error) => {
+                    console.error("Error adding document: ", error);
+                });
+
+        }
+        function SaveUserTransaction() {
+            const user = firebase.auth().currentUser;
+            
+            // Add a new document with a generated id.
+            db.collection(user.email).add({
+                type: "Debit",
+                title: BenName.firstName,
+                date: new Date().toLocaleDateString(),
+                Amount: TransferAmount.value,
+                isAirtime: false
+                
+            })
+                .then((docRef) => {
+                    console.log("Document written with ID: ", docRef.id);
+                })
+                .catch((error) => {
+                    console.error("Error adding document: ", error);
+                });
+        }
+        function SaveRecieverTransaction() {
+            const user = firebase.auth().currentUser;
+            BenAccNumberValue = Number(BenAccNumber.value)
+            // BenAccBalance= Number(doc.data().accountBalance)+Number(TransferAmount)
+
+            
+            db.collection("users").where("accountnumber", "==", BenAccNumberValue)
+    .get()
+    .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+            myDoc= doc.id
+            newDoc= doc.data()
+            // doc.data() is never undefined for query doc snapshots
+            console.log(doc.id, " => ", doc.data());
+        });
+    })
+.then((doc) => {
+                db.collection(myDoc).add({
+                type: 'Credit',
+                title: userData.firstName,
+                date: new Date().toLocaleDateString,
+                Amount: TransferAmount.value
+            })
+                .then((docRef) => {
+                    console.log("Document written with ID: ", docRef.id);
+                })
+                .catch((error) => {
+                    console.error("Error adding document: ", error);
+                });
+                })
+        }
+
+        function displayTransactionHistory(){
+            rightBottom.innerHTML= ''
+            const user = firebase.auth().currentUser;
+            
+           docRef= db.collection(user.email).orderBy("date", "asc").get().then((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+        myDoc= doc.id
+    
+        rightBottom.innerHTML+= ` <div class="transactionCard">
+                        <div class="transactionCardLeft">
+                            <div class="transactionType">
+                                <img  style="width:4.1vh"  ${doc.data().isAirtime!=true ? "src= images/transfer2.png" : "src= images/phone3.png"} alt="">
+                            </div>
+                            <div class="transactionText">
+                                <h5 id="transactTitle">${doc.data().isAirtime=true?doc.data().title:doc.data().title}</h5>
+                                <p id="transactType">${doc.data().isAirtime=true?doc.data().type:doc.data().type}</p>
+                            </div>
+                        </div>
+                        <div class="transactionCardRight">
+                          ${doc.data().type!="Credit"? "<p style='  color: rgb(196, 195, 195);' >-<p/>": "<p style='    color: rgb(8, 244, 8);'>+<p/>"}
+                            <p style="${doc.data().type!="Credit"?"color: rgb(196, 195, 195);" : "color:rgb(8, 244, 8)"}" id="transactAmount">${doc.data().isAirtime=true?doc.data().Amount:doc.data().Amount}</p>
+                        </div>
+
+                    </div>`
+        
+        // doc.data() is never undefined for query doc snapshots
+        console.log(doc.id, " => ", doc.data());
+        console.log("Current data: ", doc.data());
+
+
+    });
+})
+//  .then((docRef) => {
+              
+//                 })
+
+        }
+
+
+
+
+
+
+
+
+
+
+        function DarkMode() {
+            dark = !dark;
+            if (dark) {
+                body.style.backgroundColor = 'black';
+                left.style.backgroundImage = 'linear-gradient(rgba(40, 40, 40, 0.724), rgba(76, 41, 180, 0))';
+                right.style.backgroundColor = 'rgb(25, 25, 25)';
+                middleBottoms.style.backgroundColor = 'rgb(25, 25, 25)';
+                middleBottoms2.style.backgroundColor = 'rgb(25, 25, 25)';
+                middleTop.style.backgroundColor = 'rgb(25, 25, 25)';
+                navProfile.style.backgroundColor = 'rgb(25, 25, 25)';
+                transfersDisplay.style.backgroundColor= 'rgb(25, 25, 25)'
+                transferAcc.style.backgroundColor= 'rgba(64, 63, 63, 0.128)'
+                transferForm.style.backgroundColor= 'rgba(64, 63, 63, 0.128)'
+            } else {
+                body.style.backgroundColor = 'rgb(66, 20, 178)';
+                left.style.backgroundImage = 'linear-gradient(rgba(118, 62, 207, 0.724), rgba(76, 41, 180, 0))';
+                right.style.backgroundColor = 'rgb(76, 48, 187)';
+                middleBottoms.style.backgroundColor = 'rgb(76, 48, 187)';
+                middleBottoms2.style.backgroundColor = 'rgb(76, 48, 187)';
+                middleTop.style.backgroundColor = 'rgb(76, 48, 187)';
+                navProfile.style.backgroundColor = 'rgb(76, 48, 187)';
+                transfersDisplay.style.backgroundColor= 'rgb(76, 48, 187)'
+                transferAcc.style.backgroundColor= 'rgba(65, 20, 178, 0.569)'
+                transferForm.style.backgroundColor= 'rgba(65, 20, 178, 0.569)'
+                
+
+            }
+        }
+
+
+
+
+    </script>
