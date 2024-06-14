@@ -1,157 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
 </head>
 <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-auth-compat.js"></script>
 <style>
+  body {
+    background-color: rgb(66, 20, 178);
+  }
+
+  .container {
+    color: white;
+    padding-top: 15rem;
   
-  body{
-        background-color: rgb(18, 15, 64);
-    }
-       .container {
-        color: white;
-        padding-top: 15rem;
-       
-        width: 50%;
-        margin: auto;
+    display: flex;
+    height: 100%;
+
+    align-items: center;
+    gap: 30vh;
+
+    width: 100%;
+    margin: auto;
+
+
+
+    font-family: sans-serif;
+
+
+  }
+  .left{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+  }
+  .right{
+    width: 25%;
+
     
 
-        
-        font-family: sans-serif;
-       
+  }
+  form{
+    margin-top: 2rem;
+  }
 
-    }
-    .inputs{
-       
-        width: 50%;
-        height: 5vh;
-        margin: auto;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        justify-content: space-between;
-        
-    }
-    input{
-        cursor: pointer;
-        background-color: rgba(139, 124, 164, 0.465);
-        color: white;
-        margin-left: 2rem;
-     
-        width: 70%;
-        height: 4vh;
-        border: none;
-        border-radius: 0.5rem;
+  .inputs {
 
-    }
-    .btn{
-      margin-top: 1rem;
-      
-      display: flex;
-      justify-content: center
-      
-    }
-    button {
-        border: none;
-        margin-top: 1rem;
-        width: 13vh;
-        height: 3vh;
-        border-radius: 0.4rem;
-        transition: all 0.3s ease;
-    }
+    width: 100%;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
 
-    button:hover {
-        background-color: rgba(139, 124, 164, 0.465);
-        color: white;
-        cursor: pointer;
-    }
+  }
+
+  input {
+    cursor: pointer;
+    background-color: rgba(140, 115, 239, 0.304);
+    color: white;
+
+    width: 70%;
+    height: 4vh;
+    border: none;
+    border-radius: 0.5rem;
+
+  }
+
+  .btn {
+    margin-top: 1rem;
+
+    display: flex;
+    justify-content: center
+  }
+
+  button {
+   
+    height: 3vh;
+    width: 30%;
+    margin-left: 7.5rem;
+  
+    background-image: linear-gradient(to right, rgba(178, 54, 203, 0.882), rgba(96, 14, 219, 0.905));
+    color: white;
+
+    border: none;
+    border-radius: 0.3rem;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
+  }
+
+  button:hover {
+    background-color: rgba(139, 124, 164, 0.465);
+    color: white;
+    cursor: pointer;
+  }
 </style>
+
 <body>
-<div class="container">
-    <form>
+  <div class="container">
+    <div class="left">
+      <img src="images/Tof's Bank2.png" alt="">
+    </div>
+    <div class="right">
+      <h1>Login</h1>
+      <form>
         <div class="inputs">
-            <label for="email">Email</label>
-            <input type="text" id="email">
-          
+          <label for="email">Email</label>
+          <input type="text" id="email">
+
         </div>
         <br>
         <div class="inputs">
-            <label for="password"> Password</label>
-            <input type="text" id="password">
-     
+          <label for="password"> Password</label>
+          <input type="text" id="password">
+
         </div>
-      <div class="btn">   <button type="submit" onclick="Login(event)">login</button></div>
-       </form>
-</div>
+        <div class="btn"> <button type="submit" onclick="Login(event)">login</button></div>
+      </form>
+    </div>
+  </div>
 </body>
-<script >
-
-const firebaseConfig = {
-  apiKey: "AIzaSyDcgBapwpH3BoKX9zWA4NMKACztRicpTBY",
-  authDomain: "bankapp-63691.firebaseapp.com",
-  projectId: "bankapp-63691",
-  storageBucket: "bankapp-63691.appspot.com",
-  messagingSenderId: "1006776288110",
-  appId: "1:1006776288110:web:e6f4a54da078ce5691777f"
-};
-  
-    // Initialize Firebase
-    const app = firebase.initializeApp(firebaseConfig);
-  </script>
 <script>
-  let email= document.getElementById('email')
-  let password= document.getElementById('password')
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyDcgBapwpH3BoKX9zWA4NMKACztRicpTBY",
+    authDomain: "bankapp-63691.firebaseapp.com",
+    projectId: "bankapp-63691",
+    storageBucket: "bankapp-63691.appspot.com",
+    messagingSenderId: "1006776288110",
+    appId: "1:1006776288110:web:e6f4a54da078ce5691777f"
+  };
+
+  // Initialize Firebase
+  const app = firebase.initializeApp(firebaseConfig);
+</script>
+<script>
+  let email = document.getElementById('email')
+  let password = document.getElementById('password')
 
 
 
 
-  function Login(pre){
+  function Login(pre) {
     pre.preventDefault()
     firebase.auth().signInWithEmailAndPassword(email.value, password.value)
-  .then((userCredential) => {
-    // Signed in
-    var user = userCredential.user;
-    alert('login successfull')
-    window.location.href= "dashboard.html"
-    // ...
-  })
-  .catch((error) => {
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    console.log(errorMessage);
-  });
+      .then((userCredential) => {
+        // Signed in
+        var user = userCredential.user;
+        alert('login successful')
+        window.location.href = "dashboard.html"
+        // ...
+      })
+      .catch((error) => {
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        console.log(errorMessage);
+      });
   }
   var provider = new firebase.auth.GoogleAuthProvider();
 
-  function withGoogle(ev){
+  function withGoogle(ev) {
     ev.preventDefault()
     firebase.auth()
-  .signInWithPopup(provider)
-  .then((result) => {
-    /** @type {firebase.auth.OAuthCredential} */
-    var credential = result.credential;
+      .signInWithPopup(provider)
+      .then((result) => {
+        /** @type {firebase.auth.OAuthCredential} */
+        var credential = result.credential;
 
-    // This gives you a Google Access Token. You can use it to access the Google API.
-    var token = credential.accessToken;
-    // The signed-in user info.
-    var user = result.user;
-    alert('login successfull o')
-    // IdP data available in result.additionalUserInfo.profile.
-      // ...
-  }).catch((error) => {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    // The email of the user's account used.
-    var email = error.email;
-    // The firebase.auth.AuthCredential type that was used.
-    var credential = error.credential;
-    // ...
-  });
+        // This gives you a Google Access Token. You can use it to access the Google API.
+        var token = credential.accessToken;
+        // The signed-in user info.
+        var user = result.user;
+        alert('login successfull o')
+        // IdP data available in result.additionalUserInfo.profile.
+        // ...
+      }).catch((error) => {
+        // Handle Errors here.
+        var errorCode = error.code;
+        var errorMessage = error.message;
+        // The email of the user's account used.
+        var email = error.email;
+        // The firebase.auth.AuthCredential type that was used.
+        var credential = error.credential;
+        // ...
+      });
 
   }
 </script>

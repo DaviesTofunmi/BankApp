@@ -20,18 +20,20 @@
     }
 
     .bigDiv {
-        height: 100vh;
-        width: 90%;
+        height: 98vh;
+        width: 100%;
+      
 
         display: flex;
         align-items: center;
+        
         margin: auto;
     }
 
     .left {
         display: flex;
         align-items: center;
-        height: 100%;
+        justify-content: center;
         width: 50%;
     }
 
@@ -93,18 +95,29 @@
 
     #terms {
         width: 10%;
-        height: 2vh;
+        height: 1.7vh;
+        margin-left: -1.2rem;
     }
 
     .eyes {
-
-        width: 75%;
+        background-color: rgba(140, 115, 239, 0.304);
+        width: 60.5%;
+        border-radius: 0.5rem;
         display: flex;
         align-items: center;
         gap: 15px;
         margin-left: 5.6rem;
+        input{
+            background: none;
+            outline: none;
+           
+            margin-left: -0.00000005rem;
+        }
 
 
+    }
+    #hide{
+        display: none;
     }
 
 
@@ -112,6 +125,27 @@
         width: 60vh;
 
     }
+
+    .submitt{
+        height: 3vh;
+    width: 20%;
+    margin-left: 12.6rem;
+    margin-top: 2rem;
+    background-image: linear-gradient(to right, rgba(178, 54, 203, 0.882), rgba(96, 14, 219, 0.905));
+    color: white;
+
+    border: none;
+    border-radius: 0.3rem;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(5px);
+    cursor: pointer;
+    }
+
+  .submitt:hover {
+    background-color: rgba(139, 124, 164, 0.465);
+    color: white;
+    cursor: pointer;
+  }
 
     .pickImage {
         margin-top: 1%;
@@ -132,14 +166,15 @@
 
     }
     .right2{
- 
-        width: 90%;
-        display: none;
+        width: 30%;
+        margin-left: -40rem;
+        display: none ;
         flex-direction: column;
         align-items: center;
        text-align: center;
         font-family: sans-serif;
         color: white;
+      
         animation: moveup;
         transition: all 3s ease-in;
         animation-duration: 1.8s;
@@ -290,7 +325,7 @@ input::-webkit-inner-spin-button {
                         <input id="terms" type="checkbox">
                         <label for="terms">Accept terms & conditions</label>
 
-                        <button type="submit">Submit</button>
+                        <button class="submitt" type="submit">Submit</button>
                     </div>
                 </div>
 
@@ -351,6 +386,8 @@ input::-webkit-inner-spin-button {
         let ProfilePic= document.getElementById('ProfilePic')
         let container= document.getElementById('container')
         let right2= document.getElementById('right2')
+        let show= document.getElementById('show')
+        let hide= document.getElementById('hide')
         let accountNumber;
         let accountBalance;
         let input1= document.getElementById('input1')
@@ -411,21 +448,11 @@ let userData
                 .then((userCredential) => {
                     // Signed in 
                     var user = userCredential.user;
-                    alert('sign up successfull')
                     
-
-
-                    // ...
-                })
-                .catch((error) => {
-                    var errorCode = error.code;
-                    var errorMessage = error.message;
-                    console.log(errorMessage);
-                    // ..
-                });
-
-            // Add a new document in collection "cities"
-        db.collection("users").doc(email.value).set({
+               
+                    alert('sign up successful')
+                       // Add a new document in collection "cities"
+            db.collection("users").doc(email.value).set({
                 firstName: firstName.value,
                 lastName: lastName.value,
                 email: email.value,
@@ -447,6 +474,20 @@ let userData
                 right2.style.display='block'
 
                 // window.location.href= 'login.html'
+                    getUser()
+
+
+                    // ...
+                })
+                .catch((error) => {
+                    alert('error occured')
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    console.log(errorMessage);
+                    // ..
+                });
+
+         
 
 
         }
@@ -500,17 +541,8 @@ docRef.get().then((doc) => {
       async function Upload(pre) {
        
 
-            pre.preventDefault()
+         
             getUser()
-
-
-
-
-
-
-
-
-
                // Base64 formatted string
         var storageRef = firebase.storage().ref('/images/' + NewFile);
             var message = imgUrl;
@@ -538,10 +570,11 @@ docRef.get().then((doc) => {
    profile_pic: newUrl.toString()
     
 })
-.then(() => {
-    ProfilePic.src= userData.profile_pic
-    console.log("Document successfully updated!");
-})
+.then(db.collection("users").doc(email.value)
+    .onSnapshot((doc) => {
+        ProfilePic.src= userData.profile_pic
+        console.log("Current data: ", doc.data().profile_pic);
+    }))
 .catch((error) => {
     // The document probably doesn't exist.
     console.error("Error updating document: ", error);
@@ -563,11 +596,33 @@ return  myUserRef.update({
 .then(() => {
 
     console.log("Document successfully updated!");
+
+    window.location.href= "dashboard.html"
 })
 .catch((error) => {
     // The document probably doesn't exist.
     console.error("Error updating document: ", error);
 });
+        }
+
+let hidePwd= false
+        function showPassword(){
+            hidePwd= !hidePwd
+            if (hidePwd) {
+                hide.style.display= 'block' 
+                show.style.display= 'none'
+                password.type= 'text'
+                cpassword.type= 'text'  
+                
+            }
+            else{
+            
+                show.style.display= 'block'
+                hide.style.display= 'none'
+                password.type= 'password'
+                cpassword.type= 'password'
+
+            }
         }
         
 

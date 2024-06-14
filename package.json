@@ -10,7 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "chart.js": "^4.4.2",
-    "firebase": "^10.8.0"
+    "firebase": "^10.8.0",
+    "html2canvas": "^1.4.1"
   },
   "description": ""
 }
