@@ -34,24 +34,30 @@
                     notifications
                 </span>
             </div>
-          <div class="logoutDropdown">
-            <button id="navProfile" class="navProfile">
-               <div class="navProfile_Left">
-                <div class="profileDiv"> <img id="profileDiv" src="" alt="p"></div>
-                <div class="profileTexts">
-                    <p id="profileName"></p>
-                    <p id="profileEmail">i</p>
-                </div>
-               </div>
-                <span class="material-symbols-outlined">
-                    expand_more
-                </span>
-            </button>
-            <button onclick="LogOut()" id="logoutDiv" class="logoutDiv">
-                <p onclick="LogOut()">Log Out</p>
-            </button>
-      
+            <div class="logoutDropdown">
+                <button id="navProfile" class="navProfile">
+                    <div class="navProfile_Left">
+                        <div class="profileDiv"> <img id="profileDiv" src="" alt="p"></div>
+                        <div class="profileTexts">
+                            <p id="profileName"></p>
+                            <p id="profileEmail">i</p>
+                        </div>
+                    </div>
+                    <span class="material-symbols-outlined">
+                        expand_more
+                    </span>
+                </button>
+                <button onclick="LogOut()" id="logoutDiv" class="logoutDiv">
+                    <p onclick="LogOut()">Log Out</p>
+                </button>
+               
+            </div>
+            
         </div>
+        <div class="logoutt" > <span onclick="LogOut()" class="material-symbols-outlined">
+            logout
+            </span></div>
+       
 
     </nav>
 
@@ -84,7 +90,7 @@
                         <span class="material-symbols-outlined">
                             credit_card
                         </span>
-                        <p>Bank Transfers</p>
+                        <p>Transfers</p>
                     </div>
                     <div class="leftTexts">
                         <span class="material-symbols-outlined">
@@ -102,8 +108,8 @@
                     </div>
                     <div onclick="DarkMode()" id="Mode" class="leftTexts">
                         <span class="material-symbols-outlined">
-                            book
-                        </span>
+                            contrast
+                            </span>
                         <p>Mode</p>
                     </div>
 
@@ -128,17 +134,19 @@
                                 <div class="dashboard_ProfilePic">
                                     <img id="dashboard_ProfilePic" src="" alt="img">
                                 </div>
-                                <div class="details">
-                                    <p>Account Balance</p>
-                                    <h2 id="accountBalance">N00.0</h2>
-                                </div>
-                                <div class="details">
-                                    <p> Name</p>
-                                    <h2 id="userName">N/A</h2>
-                                </div>
-                                <div class="details">
-                                    <p>Account Number</p>
-                                    <h2 id="accountNumber">N/A</h2>
+                                <div class="rightDetails">
+                                    <div class="details">
+                                        <p>Account Balance</p>
+                                        <h2 id="accountBalance">N00.0</h2>
+                                    </div>
+                                    <div class="details">
+                                        <p> Name</p>
+                                        <h2 id="userName">N/A</h2>
+                                    </div>
+                                    <div class="details">
+                                        <p>Account Number</p>
+                                        <h2 id="accountNumber">N/A</h2>
+                                    </div>
                                 </div>
 
                             </div>
@@ -178,6 +186,102 @@
                                     <div class="pie"
                                         style="--p:30;--c:rgb(192, 130, 242); box-shadow: 18px 6px 65px rgba(192, 130, 242, 0.835); ">
                                         35%</div>
+                                </div>
+                            </div>
+                            <div class="mobileBottoms">
+                                <div id="mobile_middleBottoms">
+                                    <div class="mobile_middleBottomsContent">
+                                        <div class="mobile_category">
+                                            <h4>Category</h4>
+
+                                        </div>
+                                        <div class="mobile_categories">
+
+                                            <div class="mobileCategoryItem">
+                                                <span class="material-symbols-outlined">
+                                                    sports_esports
+                                                </span>
+                                                <p>Games</p>
+                                            </div>
+
+                                            <div onclick="midbtm2Airtime()" class="mobileCategoryItem">
+                                                <span class="material-symbols-outlined">
+                                                    smartphone
+                                                </span>
+                                                <p>Airtime</p>
+                                            </div>
+                                            <div onclick="midbtm2Deposit()" class="mobileCategoryItem">
+                                                <span class="material-symbols-outlined">
+                                                    payments
+                                                </span>
+                                                <p>Deposit</p>
+                                            </div>
+                                            <div onclick="TrHistory()" class="mobileCategoryItem">
+                                                <span class="material-symbols-outlined">
+                                                    history
+                                                </span>
+                                                <p>Transcations</p>
+                                            </div>
+                                            <div class="mobileCategoryItem">
+                                                <span class="material-symbols-outlined">
+                                                    currency_bitcoin
+                                                </span>
+                                                <p>Bitcoin</p>
+                                            </div>
+                                            <div class="mobileCategoryItem">
+                                                <span class="material-symbols-outlined">
+                                                    mail
+                                                </span>
+                                                <p>Statements</p>
+                                            </div>
+                                            <div class="mobileCategoryItem">
+                                                <span class="material-symbols-outlined">
+                                                    add_card
+                                                    </span>
+                                                <p>Add Card</p>
+                                            </div>
+
+                                            <div class="mobileCategoryItem">
+                                                <span class="material-symbols-outlined">
+                                                    qr_code_2_add
+                                                    </span>
+                                                <p>QR code</p>
+                                            </div>
+
+                                            <div class="mobileCategoryItem">
+                                                <span class="material-symbols-outlined">
+                                                    currency_pound
+                                                    </span>
+                                                <p>Exchange</p>
+                                            </div>
+
+                                            <div class="mobileCategoryItem">
+                                                <span class="material-symbols-outlined">
+                                                    timeline
+                                                    </span>
+                                                <p>Timeline</p>
+                                            </div>
+
+                                            <div class="mobileCategoryItem">
+                                                <span class="material-symbols-outlined">
+                                                    stack_star
+                                                    </span>
+                                                <p>Favorites</p>
+                                            </div>
+                                            <div class="mobileCategoryItem">
+                                                <span class="material-symbols-outlined">
+                                                    key
+                                                    </span>
+                                                <p>Token</p>
+                                            </div>
+
+
+
+
+
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
 
@@ -278,25 +382,30 @@
 
                             <div id="midbtm2_Deposit" class="midbtm2_Deposit">
                                 <h4>Deposit</h4>
-                                <form method="POST" action="https://checkout.flutterwave.com/v3/hosted/pay">
-                                    <h5>
-                                        Place your order here:
-                                    </h5>
-                                    <input type="hidden" name="public_key"
-                                        value="FLWPUBK_TEST-02b9b5fc6406bd4a41c3ff141cc45e93-X" />
-                                    <input id="flutter_name" type="hidden" name="customer[email]" value='' />
-                                    <input type="hidden" name="customer[name]" value="Ayomide Jimi-Oni" />
-                                    <input type="hidden" name="tx_ref" value="txref-81123" />
-                                    <input name="amount" />
-                                    <input type="hidden" name="currency" value="NGN" />
-                                    <input type="hidden" name="meta[source]" value="docs-html-test" />
-                                    <br>
-                                    <button type="submit" id="start-payment-button"> Place Order</button>
-                                </form>
+
+                               <form >
+                                <h5>
+                                    Place your order here:
+                                </h5>
+                                <input id="flutterInput" name="amount" />
+
+                                <button onclick="makePayment()" type="button" id="start-payment-button"> Place
+                                    Order</button>
+                               </form>
+
+                            </div>
+                            <div id="historyy" class="historyy">
+                                <h4>Recents</h4>
+                                <div id="rightBottom2" class="rightBottom">
+
+
+
+                                </div>
                             </div>
                         </div>
 
                     </div>
+
 
 
                 </div>
@@ -432,6 +541,9 @@
 
 
     </div>
+  
+
+  
 
 
     <script>
@@ -449,6 +561,8 @@
         const app = firebase.initializeApp(firebaseConfig);
         const db = firebase.firestore();
     </script>
+      <script src="https://checkout.flutterwave.com/v3.js">
+      </script>
 
     <script>
         let dashboardDisplay = document.getElementById("dashboardDisplay");
@@ -458,6 +572,7 @@
         let midbtm2_Airtime = document.getElementById('midbtm2_Airtime')
         let midbtm2_Deposit = document.getElementById('midbtm2_Deposit')
         let middle = document.getElementById('middle')
+        let historyy = document.getElementById('historyy')
 
         function dashboard() {
             dashboardDisplay.style.display = 'flex'
@@ -474,13 +589,23 @@
         function midbtm2Airtime() {
             midbtm2_Airtime.style.display = 'block'
             midbtm2_Deposit.style.display = 'none'
+            historyy.style.display = 'none'
         }
 
         function midbtm2Deposit() {
             midbtm2_Deposit.style.display = 'block'
             midbtm2_Airtime.style.display = 'none'
+            historyy.style.display = 'none'
+        }
+        function TrHistory() {
+            historyy.style.display = 'flex'
+            midbtm2_Deposit.style.display = 'none'
+            midbtm2_Airtime.style.display = 'none'
+
         }
         midbtm2Airtime()
+
+
 
         let Mode = document.getElementById('Mode')
         let body = document.getElementById('body')
@@ -498,7 +623,7 @@
         let NetworkImg = document.getElementById('NetworkImg')
         let Networks = document.getElementById('Networks')
         let airtimeAmount = document.getElementById('airtimeAmount');
-        let phoneNumberInput= document.getElementById('phoneNumberInput')
+        let phoneNumberInput = document.getElementById('phoneNumberInput')
         let BenAccNumber = document.getElementById('BenAccNumber')
         let TransferAmount = document.getElementById('TransferAmount')
         let Beneficiary = document.getElementById('Beneficiary')
@@ -506,6 +631,7 @@
         let transactionType = document.getElementById('transactionType')
         let transactAmount = document.getElementById('transactAmount')
         let rightBottom = document.getElementById('rightBottom')
+        let rightBottom2 = document.getElementById('rightBottom2')
         let userName = document.getElementById('userName')
         let accountNumber = document.getElementById('accountNumber')
         let profileDiv = document.getElementById('profileDiv')
@@ -519,20 +645,20 @@
         let RTDate = document.getElementById('RTDate')
         let RTBen = document.getElementById('RTBen')
         let RTId = document.getElementById('RTId')
-        let Reciept_Ben= document.getElementById('Reciept_Ben')
+        let Reciept_Ben = document.getElementById('Reciept_Ben')
         let input1 = document.getElementById('input1')
         let input2 = document.getElementById('input2')
         let input3 = document.getElementById('input3')
         let input4 = document.getElementById('input4')
         let UserPin
         let transactPin = document.getElementById('transactPin')
-        let currentAccountBalance= 0
-        let logoutDiv= document.getElementById('logoutDiv')
-        let chartContainer= document.getElementsByClassName('chartContainer')
-        let inputs= document.getElementsByTagName('input')
-        let select= document.getElementsByTagName('select')
-        let isAirtime= false
-        
+        let currentAccountBalance = 0
+        let logoutDiv = document.getElementById('logoutDiv')
+        let chartContainer = document.getElementsByClassName('chartContainer')
+        let inputs = document.getElementsByTagName('input')
+        let select = document.getElementsByTagName('select')
+        let isAirtime = false
+        let flutterInput = document.getElementById('flutterInput')
 
 
 
@@ -595,6 +721,7 @@
         function isloggedin() {
             firebase.auth().onAuthStateChanged((user) => {
                 myuser = user.email
+              
 
 
 
@@ -604,7 +731,7 @@
                     var uid = user.uid;
                     console.log(user.email);
                     profileEmail.innerHTML = user.email
-                    flutter_name.value = myuser
+
 
 
 
@@ -632,17 +759,17 @@
         isloggedin()
 
 
-     async  function fetchUser() {
+        async function fetchUser() {
             //Getting user data from firestore
             const user = firebase.auth().currentUser;
             var docRef = db.collection("users").doc(user.email);
 
 
-           await docRef.get().then((doc) => {
+            await docRef.get().then((doc) => {
                 userData = doc.data();
                 if (doc.exists) {
 
-
+                    myuserName= userData.firstName
 
                     console.log("Document data:", userData);
                     accBalance = doc.data().accountBalance
@@ -654,7 +781,7 @@
                     profileName.innerHTML = doc.data().firstName + " " + doc.data().lastName
                     cardName.innerHTML = doc.data().firstName + " " + doc.data().lastName
                     accountBalance.innerHTML = 'N' + doc.data().accountBalance
-                    accountNumber.innerHTML= doc.data().accountnumber
+                    accountNumber.innerHTML = doc.data().accountnumber
                     transferAccountBalance.innerHTML = 'N' + doc.data().accountBalance
                     currentAccountBalance = Number(accBalance) - Number(airtimeAmount.value)
 
@@ -669,36 +796,36 @@
 
 
         }
-        let showPinBox= false
+        let showPinBox = false
         let airtime
 
 
-      
+
         function DisplayPinBoxForAirtime() {
-             showPinBox= true
-            isAirtime=true
-        
-       
-    
-           
-        const user = firebase.auth().currentUser;
-        var docRef = db.collection("users").doc(user.email);
-        console.log(currentAccountBalance);
-        var userRef = db.collection("users").doc(myuser);
-        if (currentAccountBalance < 0 || phoneNumberInput.value=='') {
-            airtimeAmount.value=''
-            console.error('insufficient funds');
-              alert('insufficient funds or invalid number')
+            showPinBox = true
+            isAirtime = true
+
+
+
+
+            const user = firebase.auth().currentUser;
+            var docRef = db.collection("users").doc(user.email);
+            console.log(currentAccountBalance);
+            var userRef = db.collection("users").doc(myuser);
+            if (currentAccountBalance < 0 || phoneNumberInput.value == '') {
+                airtimeAmount.value = ''
+                console.error('insufficient funds');
+                alert('insufficient funds or invalid number')
+
+            }
+            else if (showPinBox == true) {
+                transactPin.style.display = 'flex'
+                dashboardDisplay.style.filter = 'blur(3px)'
+                transfersDisplay.style.filter = 'blur(3px)'
+
+            }
 
         }
-        else if(showPinBox == true) {
-            transactPin.style.display = 'flex'
-            dashboardDisplay.style.filter= 'blur(3px)'
-            transfersDisplay.style.filter= 'blur(3px)'
-
-        }
-       
-    }
 
         // function buyAirtime() {
 
@@ -729,7 +856,7 @@
         //                         console.log("Document successfully updated!", doc.data().accountBalance);
 
         //                     });
-                      
+
         //             })
         //             .catch((error) => {
         //                 // The document probably doesn't exist.
@@ -737,49 +864,49 @@
         //             });
 
         //     }
-        
-        
+
+
         // })
-           
-           
+
+
 
 
 
 
         // }
-        
+
         function Proceed() {
-            
-           
+
+
             UserPin = input1.value + input2.value + input3.value + input4.value
             console.log(UserPin);
             console.log(userData);
-          
-            if (UserPin == userData.pin && isAirtime==true) {
+
+            if (UserPin == userData.pin && isAirtime == true) {
                 console.log('good');
-                isAirtime =false
-             deductAccBalanceAirtime()
-             saveAirtimeTransaction()
-                transactPin.style.display='none'
-                input1.value= ''
-                input2.value= ''
-                input3.value= ''
-                input4.value= ''
-                dashboardDisplay.style.filter= 'none'
-                transfersDisplay.style.filter= 'none'
+                isAirtime = false
+                deductAccBalanceAirtime()
+                saveAirtimeTransaction()
+                transactPin.style.display = 'none'
+                input1.value = ''
+                input2.value = ''
+                input3.value = ''
+                input4.value = ''
+                dashboardDisplay.style.filter = 'none'
+                transfersDisplay.style.filter = 'none'
                 alert('Airtime transaction successful')
-               
+
 
             }
-            else if(UserPin == userData.pin && isAirtime==false){
+            else if (UserPin == userData.pin && isAirtime == false) {
                 Transfer()
-                transactPin.style.display='none'
-                input1.value= ''
-                input2.value= ''
-                input3.value= ''
-                input4.value= ''
-                dashboardDisplay.style.filter= 'none'
-                transfersDisplay.style.filter= 'none'
+                transactPin.style.display = 'none'
+                input1.value = ''
+                input2.value = ''
+                input3.value = ''
+                input4.value = ''
+                dashboardDisplay.style.filter = 'none'
+                transfersDisplay.style.filter = 'none'
 
             }
             else {
@@ -852,7 +979,7 @@
                 .get()
                 .then((querySnapshot) => {
                     querySnapshot.forEach((doc) => {
-                      
+
                         // doc.data() is never undefined for query doc snapshots
                         console.log(doc.id, " => ", doc.data());
                     });
@@ -864,7 +991,7 @@
 
         }
         let BenName
-     
+
         function displayBeneficiary() {
             db.collection("users").get().then((querySnapshot) => {
                 querySnapshot.forEach((doc) => {
@@ -881,31 +1008,31 @@
 
         }
         function DisplayPinBox() {
-             showPinBox= true
-        
-       
-    
-           
+            showPinBox = true
+
+
+
+
             const user = firebase.auth().currentUser;
             var docRef = db.collection("users").doc(user.email);
             console.log(currentAccountBalance);
             var userRef = db.collection("users").doc(myuser);
             if (currentAccountBalance < 0) {
                 console.error('insufficient funds');
-                  alert('insufficient funds')
+                alert('insufficient funds')
 
             }
-            else if(BenAccNumber.value!=BenName.accountnumber || BenAccNumber.value==''){
+            else if (BenAccNumber.value != BenName.accountnumber || BenAccNumber.value == '') {
                 alert('Invalid account number')
 
             }
-            else if(showPinBox == true) {
+            else if (showPinBox == true) {
                 transactPin.style.display = 'flex'
-                dashboardDisplay.style.filter= 'blur(3px)'
-                transfersDisplay.style.filter= 'blur(3px)'
+                dashboardDisplay.style.filter = 'blur(3px)'
+                transfersDisplay.style.filter = 'blur(3px)'
 
             }
-           
+
         }
 
 
@@ -959,7 +1086,7 @@
 
             SaveUserTransaction()
             SaveRecieverTransaction()
-         
+
 
 
 
@@ -997,9 +1124,9 @@
 
 
                                         console.log("Document successfully updated!", doc.data().accountBalance);
-                                        BenAccNumber.value=''
-            TransferAmount.value=''
-            Beneficiary.innerHTML=''
+                                        BenAccNumber.value = ''
+                                        TransferAmount.value = ''
+                                        Beneficiary.innerHTML = ''
 
                                     });
 
@@ -1012,51 +1139,51 @@
                 })
         }
         function deductAccBalanceAirtime() {
-    const user = firebase.auth().currentUser;
-    var docRef = db.collection("users").doc(user.email)
-       .get()
-       .then((doc) => {
-            console.log('airtimeAmount.value:', airtimeAmount.value);
-            currentAccountBalance = Number(doc.data().accountBalance) - Number(airtimeAmount.value)
-            console.log('currentAccountBalance:', currentAccountBalance);
-            var userRef = db.collection("users").doc(user.email);
-            if (currentAccountBalance < 0) {
-                alert('insufficient funds');
-            } else {
-                return userRef.update({
-                    accountBalance: Number(currentAccountBalance)
-                })
-                   .then(() => {
-                        db.collection("users").doc(myuser)
-                           .onSnapshot((doc) => {
-                                accountBalance.innerHTML = 'N' + doc.data().accountBalance
-                                transferAccountBalance.innerHTML = 'N' + doc.data().accountBalance
-                                console.log("Document successfully updated:", doc.data().accountBalance);
-                                airtimeAmount.value=''
-                                phoneNumberInput.value=''
+            const user = firebase.auth().currentUser;
+            var docRef = db.collection("users").doc(user.email)
+                .get()
+                .then((doc) => {
+                    console.log('airtimeAmount.value:', airtimeAmount.value);
+                    currentAccountBalance = Number(doc.data().accountBalance) - Number(airtimeAmount.value)
+                    console.log('currentAccountBalance:', currentAccountBalance);
+                    var userRef = db.collection("users").doc(user.email);
+                    if (currentAccountBalance < 0) {
+                        alert('insufficient funds');
+                    } else {
+                        return userRef.update({
+                            accountBalance: Number(currentAccountBalance)
+                        })
+                            .then(() => {
+                                db.collection("users").doc(myuser)
+                                    .onSnapshot((doc) => {
+                                        accountBalance.innerHTML = 'N' + doc.data().accountBalance
+                                        transferAccountBalance.innerHTML = 'N' + doc.data().accountBalance
+                                        console.log("Document successfully updated:", doc.data().accountBalance);
+                                        airtimeAmount.value = ''
+                                        phoneNumberInput.value = ''
+                                    });
+
+                            })
+                            .catch((error) => {
+                                console.error("Error updating document: ", error);
                             });
-                        
-                    })
-                   .catch((error) => {
-                        console.error("Error updating document: ", error);
-                    });
-            }
-        })
-       .catch((error) => {
-            console.error("Error getting document: ", error);
-        });
-}      
+                    }
+                })
+                .catch((error) => {
+                    console.error("Error getting document: ", error);
+                });
+        }
 
 
 
 
-function saveAirtimeTransaction() {
+        function saveAirtimeTransaction() {
 
             const user = firebase.auth().currentUser;
 
             db.collection(user.email).add({
                 type: "Airtime",
-                date:  firebase.firestore.Timestamp.fromDate(new Date()),
+                date: firebase.firestore.Timestamp.fromDate(new Date()),
                 Amount: airtimeAmount.value,
                 title: 'You',
                 isAirtime: true
@@ -1149,7 +1276,8 @@ function saveAirtimeTransaction() {
             <p style="${transactionData.type != "Credit" ? "color: rgb(196, 195, 195);" : "color:rgb(8, 244, 8)"}" id="transactAmount">${transactionData.isAirtime ? transactionData.Amount : transactionData.Amount}</p>
           </div>
         </div>`
-
+                    let htmlContent = rightBottom.innerHTML
+                    rightBottom2.innerHTML = htmlContent
                     console.log(doc.id, " => ", transactionData);
                     console.log("Current data: ", transactionData);
                 });
@@ -1162,7 +1290,7 @@ function saveAirtimeTransaction() {
             RTAmount.innerHTML = transactionData.Amount
             RTType.innerHTML = transactionData.type
             RTStatus.innerHTML = 'successful'
-            transactionData.type !='Debit'? Reciept_Ben.innerHTML='Sender' : Reciept_Ben.innerHTML='Beneficiary'
+            transactionData.type != 'Debit' ? Reciept_Ben.innerHTML = 'Sender' : Reciept_Ben.innerHTML = 'Beneficiary'
 
             RTDate.innerHTML = new Date().toLocaleDateString(),
                 RTBen.innerHTML = transactionData.title
@@ -1173,14 +1301,14 @@ function saveAirtimeTransaction() {
 
         function receiptPopUp(transactionId) {
             show = true
-          
+
             displayRecieptData(transactionId)
-          
+
 
             if (show === true) {
                 receiptPop.style.display = 'block'
                 middle.style.filter = 'blur(3px)'
-                
+
             }
             else {
                 receiptPop.style.display = 'none'
@@ -1222,12 +1350,47 @@ function saveAirtimeTransaction() {
         }
 
 
-      
 
 
 
+       
 
+        function makePayment() {
+            var userRef = db.collection("users").doc(myuser);
+    FlutterwaveCheckout({
+      public_key:"FLWPUBK_TEST-8a8dab827003638ce86403866d888436-X",
+      tx_ref: "txref-DI0NzMx13",
+      amount: flutterInput.value,
+      currency: "NGN",
+      payment_options: "card, banktransfer, ussd",
 
+      meta: {
+        source: "docs-inline-test",
+        consumer_mac: "92a3-912ba-1192a",
+      },
+      customer: {
+        email: myuser,
+        phone_number: "08100000000",
+        name: myuserName,
+      },
+      customizations: {
+        title: "Flutterwave Developers",
+        description: "Test Payment",
+        logo: "https://checkout.flutterwave.com/assets/img/rave-logo.png",
+      },
+      callback: function (data){
+    // let deposit= Number(userData.accountBalance ) + Number(flutterInput.value)
+    userRef.update({
+                            accountBalance: firebase.firestore.FieldValue.increment(Number(flutterInput.value))
+
+                        })
+        console.log("payment callback:", data);
+      },
+      onclose: function() {
+        console.log("Payment cancelled!");
+      }
+    });
+  }
 
 
 
@@ -1240,64 +1403,66 @@ function saveAirtimeTransaction() {
             if (dark) {
                 body.style.backgroundColor = 'black';
                 left.style.backgroundImage = 'linear-gradient(rgba(40, 40, 40, 0.724), rgba(76, 41, 180, 0))';
-                right.style.backgroundColor = 'rgb(25, 25, 25)';
-                middleBottoms.style.backgroundColor = 'rgb(25, 25, 25)';
-                middleBottoms2.style.backgroundColor = 'rgb(25, 25, 25)';
+                right.style.backgroundImage = 'linear-gradient(rgba(40, 40, 40, 0.724), rgba(76, 41, 180, 0))';
+                middleBottoms.style.backgroundImage = 'linear-gradient(rgba(40, 40, 40, 0.724), rgba(76, 41, 180, 0))';
+                middleBottoms2.style.backgroundImage = 'linear-gradient(rgba(40, 40, 40, 0.724), rgba(76, 41, 180, 0))';
                 middleTop.style.backgroundColor = 'rgb(25, 25, 25)';
                 navProfile.style.backgroundColor = 'rgb(25, 25, 25)';
                 transfersDisplay.style.backgroundColor = 'rgb(25, 25, 25)'
                 transferAcc.style.backgroundColor = 'rgba(64, 63, 63, 0.128)'
                 transferForm.style.backgroundColor = 'rgba(64, 63, 63, 0.128)'
-                transactPin.style.backgroundColor='rgba(64, 63, 63, 0.728)'
-                receiptPop.style.backgroundColor= 'rgb(40, 39, 40)'
-                logoutDiv.style.backgroundColor= 'rgb(40, 39, 40)'
+                transactPin.style.backgroundColor = 'rgba(64, 63, 63, 0.728)'
+                receiptPop.style.backgroundColor = 'rgb(40, 39, 40)'
+                logoutDiv.style.backgroundColor = 'rgb(40, 39, 40)'
                 for (let i = 0; i < select.length; i++) {
-  select[i].style.backgroundColor = "rgb(40, 39, 40)";
-}
+                    select[i].style.backgroundColor = "rgb(40, 39, 40)";
+                }
                 for (let i = 0; i < inputs.length; i++) {
-  inputs[i].style.backgroundColor = "rgb(40, 39, 40)";
-  inputs[i].style.color = 'white'
-}
+                    inputs[i].style.backgroundColor = "rgb(40, 39, 40)";
+                    inputs[i].style.color = 'white'
+                }
 
                 for (let i = 0; i < chartContainer.length; i++) {
-  chartContainer[i].style.backgroundColor = 'rgb(40, 39, 40)'}
+                    chartContainer[i].style.backgroundColor = 'rgb(40, 39, 40)'
+                }
             } else {
                 body.style.backgroundColor = 'rgb(66, 20, 178)';
                 left.style.backgroundImage = 'linear-gradient(rgba(118, 62, 207, 0.724), rgba(76, 41, 180, 0))';
-                right.style.backgroundColor = 'rgb(76, 48, 187)';
-                middleBottoms.style.backgroundColor = 'rgb(76, 48, 187)';
-                middleBottoms2.style.backgroundColor = 'rgb(76, 48, 187)';
+                right.style.backgroundImage = ' linear-gradient(rgb(75,48,186), rgba(76, 41, 180, 0))';
+                middleBottoms.style.backgroundImage = ' linear-gradient(rgb(75,48,186), rgba(76, 41, 180, 0))';
+                middleBottoms2.style.backgroundImage = ' linear-gradient(rgb(75,48,186), rgba(76, 41, 180, 0))';
                 middleTop.style.backgroundColor = 'rgb(76, 48, 187)';
                 navProfile.style.backgroundColor = 'rgb(76, 48, 187)';
                 transfersDisplay.style.backgroundColor = 'rgb(76, 48, 187)'
                 transferAcc.style.backgroundColor = 'rgba(65, 20, 178, 0.569)'
                 transferForm.style.backgroundColor = 'rgba(65, 20, 178, 0.569)'
-                transactPin.style.backgroundColor='rgb(76, 48, 187)'
-                receiptPop.style.backgroundColor= 'rgb(76, 48, 187)'
-                logoutDiv.style.backgroundColor= 'rgb(89, 55, 221)'
+                transactPin.style.backgroundColor = 'rgb(76, 48, 187)'
+                receiptPop.style.backgroundColor = 'rgb(76, 48, 187)'
+                logoutDiv.style.backgroundColor = 'rgb(89, 55, 221)'
                 // chartContainer.style.backgroundColor=  'rgb(159, 159, 159)'
                 for (let i = 0; i < select.length; i++) {
-  select[i].style.backgroundColor = "rgba(140, 115, 239, 0.304)";
-}
+                    select[i].style.backgroundColor = "rgba(140, 115, 239, 0.304)";
+                }
                 for (let i = 0; i < inputs.length; i++) {
-  inputs[i].style.backgroundColor = "rgba(140, 115, 239, 0.304)";
-}
+                    inputs[i].style.backgroundColor = "rgba(140, 115, 239, 0.304)";
+                }
                 for (let i = 0; i < chartContainer.length; i++) {
-  chartContainer[i].style.backgroundColor = "rgb(65, 20, 178)";
-}
+                    chartContainer[i].style.backgroundColor = "rgb(65, 20, 178)";
+                }
             }
         }
 
 
-        function LogOut(){
+        function LogOut() {
             firebase.auth().signOut().then(() => {
-                window.location.href= 'login.html'
-  // Sign-out successful.
-}).catch((error) => {
-  // An error happened.
-});
+                window.location.href = 'login.html'
+                // Sign-out successful.
+            }).catch((error) => {
+                // An error happened.
+            });
         }
 
 
 
     </script>
+
