@@ -258,6 +258,10 @@ nav img {
 
     color: white;
     margin: auto;
+    h3{
+        font-size: 2vw;
+    }
+  
 }
 
 .transferAcc {
@@ -273,6 +277,13 @@ nav img {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    h6{
+        font-size: 1vw;
+    }
+    h2{
+        font-size: 2vw ;
+    };
+   
 
 }
 
@@ -389,10 +400,16 @@ nav img {
     width: 100%;
     display: flex;
     margin-top: 4%;
-    gap: 10%
+    gap: 10%;
+
+    h2{
+        font-weight: 400;
+    }
 }
 
 .rightDetails {
+
+   
 
     height: 3vh;
     width: 66%;
@@ -434,6 +451,77 @@ color: rgba(198, 177, 225, 0.741);
     text-overflow: unset;
     overflow: unset;
 }
+
+
+.analytics{
+
+    width: 100%;
+    height: 11vw;
+    margin-top: 1vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Earnings_div{
+   
+    padding-top: 1vw;
+    padding-left: 1vw;
+    height: 8vw;
+    width: 17vw;
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+    border-right: 1px solid rgba(255, 255, 255, 0.131);
+
+
+}
+.iconDiv{
+   
+    width: 2.5vw;
+    height: 2.5vw; 
+display: flex;
+align-items: center;
+justify-content: center;
+    border-radius: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.276);
+
+    span{
+        font-size: 1.5vw;
+    }
+}
+
+
+.earnings{
+    display: flex;
+    align-items: center;
+    gap: 7vw;
+    margin-top: 0.4vw;
+    h3{
+        font-weight: 400;
+        font-size: 1.3vw;
+    }
+}
+#last_earnings{
+border: none;
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .charts {
     display: flex;
@@ -1514,6 +1602,288 @@ input::-webkit-inner-spin-button {
 
 
 
+@media only screen and (max-width: 348px) {
+    body {
+      height: 100%;
+      width: 100%;
+      overflow-x: hidden;
+    }
+  
+    nav {
+      width: 80%;
+      .logo {
+        width: 8vh;
+      }
+    }
+  
+    .navRight {
+      display: none;
+    }
+    .logoutt{
+      display: block;
+      margin-right: -1.5rem;
+    }
+  
+    .alphaBody {
+      width: 95%;
+      gap: 0.4vh;
+    }
+  
+    .left {
+      height: 90vh;
+      padding-left: 0.3rem;
+      padding-right: 1.2rem;
+      width: 8%;
+    }
+  
+    .leftTexts {
+      height: 1.8vh;
+      width: 5vh;
+      padding-right: 0.5rem;
+      gap: 1px;
+      margin-left: -1rem;
+      margin-bottom: 0.6rem;
+    }
+  
+    .leftTexts:hover {
+      background-image: linear-gradient(to right, rgba(192, 47, 254, 0), rgba(110, 74, 255, 0.659));
+      cursor: pointer;
+      scale: 1.05;
+    }
+  
+    .leftTexts p {
+      font-size: 5px;
+    }
+  
+    .leftTexts span {
+      font-size: 12px;
+    }
+  
+    .leftContent {
+      gap: 30vh;
+    }
+  
+    .leftTop {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8vh;
+    }
+  
+    .middle {
+      width: 100%;
+      height: auto;
+    }
+  
+    .middleTop {
+      margin-bottom: 0.1rem;
+      height: 50%;
+    }
+  
+    .balanceDiv {
+      h2 {
+        font-size: 9px;
+      }
+      p {
+        font-size: 4px;
+      }
+    }
+  
+    .balanceSummary {
+      margin-bottom: 1rem;
+      h4 {
+        font-size: 6px;
+      }
+    }
+  
+    .acctDetails {
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .dashboard_ProfilePic {
+      width: 10vh;
+      height: auto;
+      margin-bottom: 0.3rem;
+    }
+  
+    .rightDetails {
+      gap: 3vh;
+      margin: auto;
+      width: auto;
+      margin-bottom: 0rem;
+    }
+  
+    .pie {
+      width: 18px;
+      --p: 8;
+      --b: 3px;
+      --c: rgb(73, 214, 210);
+      --w: 18px;
+      font-size: 4px;
+    }
+  
+    .charts {
+      gap: 1.5%;
+    }
+  
+    .chartContainer {
+      height: 2.5vh;
+      width: 13vh;
+    }
+  
+    .chartContainerLeft {
+      h4 {
+        font-size: 6px;
+      }
+    }
+  
+    #middleBottoms {
+      display: none;
+    }
+  
+    #middleBottoms2 {}
+  
+    .middleBottoms {
+      width: 100%;
+    }
+  
+    .right {
+      display: none;
+    }
+  
+    .mobileBottoms {
+      display: block;
+      width: 100%;
+      height: 11vh;
+      margin-top: 0.2rem;
+    }
+  
+    #mobile_middleBottoms {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: none;
+      margin-top: 0.1rem;
+      width: 100%;
+      height: 10vh;
+    }
+  
+    .mobile_middleBottomsContent {
+      display: block;
+      height: 90%;
+      width: 90%;
+      h4 {
+        font-size: 5px;
+      }
+    }
+  
+    .mobile_category {
+      margin-top: 0.4rem;
+      margin-left: -0.2rem;
+      margin-bottom: 0.1rem;
+      h4 {
+        font-size: 7px;
+      }
+    }
+  
+    .mobileCategoryItem {
+      p {
+        text-align: center;
+        margin-top: 0.3rem;
+      }
+    }
+  
+    .mobileCategoryItem span {
+      font-size: 20px;
+    }
+  
+    .mobile_categories {
+      width: 100%;
+      padding-right: 0rem;
+      margin-left: -0.3rem;
+      margin-top: 0.3rem;
+      display: flex;
+      height: auto;
+      line-height: 2px;
+      gap: 2vh;
+      flex-wrap: wrap;
+    }
+  
+    .historyy {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5vh;
+        margin: auto;
+        height: 100%;
+        overflow: hidden;
+        h4 {
+          color: white;
+          font-size: 10px;
+        }
+      }
+    
+      #rightBottom2 {
+        display: block;
+        height: 100%;
+      }
+    
+      .transactionCard {
+        margin-bottom: 0.2rem;
+        height: 4vh;
+        font-size: 10px;
+      }
+    
+      .transactionCardLeft {
+        gap: 0.8vh;
+      }
+    
+      .transactionText {
+        text-align: start;
+      }
+
+
+.transferFormContent select{
+    width: 39vw;
+    height: 8vw;
+    border-radius: 0.3rem;
+    font-size: 3.5vw;
+}
+.transferFormContent input{
+    width: 39vw;
+    height: 8vw;
+    padding-left: 0.1rem;
+    border-radius: 0.3rem;
+   font-size: 3.5vw;
+}
+.transferFormContent button{
+    width: 39vw;
+    height: 8vw;
+    border-radius: 0.3rem;
+    font-size: 3.5vw;
+}
+.transferFormContent p{
+  
+    font-size: 3.5vw;
+
+}
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
 
 
 /* Your existing CSS code */
@@ -1530,3 +1900,4 @@ input::-webkit-inner-spin-button {
     margin-top: 3rem;
    }
 }
+
