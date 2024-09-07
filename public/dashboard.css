@@ -404,6 +404,7 @@ nav img {
 
     h2{
         font-weight: 400;
+        font-size: 1.8vw ;
     }
 }
 
@@ -810,6 +811,7 @@ border: none;
     border-radius: 0.3rem;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(5px);
+    font-size: 50%;
 
 
 }
