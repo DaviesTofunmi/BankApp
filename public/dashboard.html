@@ -875,10 +875,20 @@
             var docRef = db.collection("users").doc(user.email);
             console.log(currentAccountBalance);
             var userRef = db.collection("users").doc(myuser);
-            if (currentAccountBalance < 0 || phoneNumberInput.value == '') {
+            if (currentAccountBalance < 0) {
                 airtimeAmount.value = ''
                 console.error('insufficient funds');
                 alert('insufficient funds or invalid number')
+
+            }
+            else if(airtimeAmount.value == ''){
+                alert('Kindly Enter Amount')
+                
+            }
+            else if( phoneNumberInput.value == '' || phoneNumberInput.value.length < 10){
+                airtimeAmount.value = ''
+                console.error('insufficient funds');
+                alert('invalid number')
 
             }
             else if (showPinBox == true) {
@@ -975,7 +985,7 @@
             }
             else {
                 console.log('bad');
-                alert('error occured')
+                alert('Incorrect pin')
             }
 
         }
@@ -1112,19 +1122,31 @@
                     querySnapshot.forEach((doc) => {
 
                         benAccBalance= doc.data().accountBalance
+                        myBenAccNumber= doc.data().accountnumber
 
                         var userRef = db.collection("users").doc(
                             doc.id
                         );
                         
                         if(userData.accountBalance < TransferAmount.value){
-                            alert('enter valid amount')
+                            alert('insufficient funds')
                             return
                             
                         }
                         else if(userData.accountBalance < 0){
                             alert('insufficient funds')
                             return
+
+                        }
+                        else if(userData.accountnumber === myBenAccNumber){
+                            alert('Invalid Action')
+                            return
+                            
+
+                        }
+
+                        else if(TransferAmount.value == ''){
+                            alert('Kindly enter amount')
 
                         }
                         else{
