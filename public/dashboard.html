@@ -863,43 +863,6 @@
         let airtime
 
 
-
-        function DisplayPinBoxForAirtime() {
-            showPinBox = true
-            isAirtime = true
-
-
-
-
-            const user = firebase.auth().currentUser;
-            var docRef = db.collection("users").doc(user.email);
-            console.log(currentAccountBalance);
-            var userRef = db.collection("users").doc(myuser);
-            if (currentAccountBalance < 0) {
-                airtimeAmount.value = ''
-                console.error('insufficient funds');
-                alert('insufficient funds or invalid number')
-
-            }
-            else if(airtimeAmount.value == ''){
-                alert('Kindly Enter Amount')
-                
-            }
-            else if( phoneNumberInput.value == '' || phoneNumberInput.value.length < 10){
-                airtimeAmount.value = ''
-                console.error('insufficient funds');
-                alert('invalid number')
-
-            }
-            else if (showPinBox == true) {
-                transactPin.style.display = 'flex'
-                dashboardDisplay.style.filter = 'blur(3px)'
-                transfersDisplay.style.filter = 'blur(3px)'
-
-            }
-
-        }
-
         // function buyAirtime() {
 
         //     const user = firebase.auth().currentUser;
@@ -947,6 +910,84 @@
 
 
         // }
+        // function airtimePurchase(){
+        //     UserPin = input1.value + input2.value + input3.value + input4.value
+        //     console.log(UserPin);
+        //     console.log(userData);
+        //     if (UserPin == userData.pin && isAirtime == true) {
+        //         console.log('good');
+        //         isAirtime = false
+        //         deductAccBalanceAirtime()
+        //         saveAirtimeTransaction()
+        //         transactPin.style.display = 'none'
+        //         input1.value = ''
+        //         input2.value = ''
+        //         input3.value = ''
+        //         input4.value = ''
+        //         dashboardDisplay.style.filter = 'none'
+        //         transfersDisplay.style.filter = 'none'
+        //         alert('Airtime transaction successful')
+
+
+        //     }
+
+        // }
+
+
+        function DisplayPinBoxForAirtime() {
+           
+           isAirtime = true
+
+
+
+
+           const user = firebase.auth().currentUser;
+           var docRef = db.collection("users").doc(user.email);
+           console.log(currentAccountBalance);
+           var userRef = db.collection("users").doc(myuser);
+           if (userData.accountBalance < 0) {
+               airtimeAmount.value = ''
+               console.error('insufficient funds');
+               alert('insufficient funds')
+            
+               return
+
+           }
+           else if(userData.accountBalance < airtimeAmount.value){
+               airtimeAmount.value = ''
+                phoneNumberInput.value = ''
+               console.error('insufficient funds');
+               alert('insufficient funds')
+              
+               return
+
+           }
+           else if(airtimeAmount.value == ''){
+               alert('Kindly Enter Amount')
+              
+               return
+               
+           }
+           else if( phoneNumberInput.value == '' || phoneNumberInput.value.length < 11){
+               airtimeAmount.value = ''
+               console.error('insufficient funds');
+               alert('invalid phone number')
+             
+               return
+
+           }
+           else  {
+               
+               showPinBox = true
+               transactPin.style.display = 'flex'
+               dashboardDisplay.style.filter = 'blur(3px)'
+               transfersDisplay.style.filter = 'blur(3px)'
+               
+
+           }
+
+       }
+
 
         function Proceed() {
          
@@ -958,7 +999,7 @@
 
             if (UserPin == userData.pin && isAirtime == true) {
                 console.log('good');
-                isAirtime = false
+               
                 deductAccBalanceAirtime()
                 saveAirtimeTransaction()
                 transactPin.style.display = 'none'
@@ -968,7 +1009,8 @@
                 input4.value = ''
                 dashboardDisplay.style.filter = 'none'
                 transfersDisplay.style.filter = 'none'
-                alert('Airtime transaction successful')
+                
+                isAirtime = false
 
 
             }
@@ -1083,6 +1125,7 @@
         }
         function DisplayPinBox() {
             showPinBox = true
+            isAirtime=false
 
 
 
@@ -1091,10 +1134,14 @@
             var docRef = db.collection("users").doc(user.email);
             console.log(currentAccountBalance);
             var userRef = db.collection("users").doc(myuser);
-            if (currentAccountBalance < 0) {
+            if (userData.accountBalance < 0) {
                 console.error('insufficient funds');
                 alert('insufficient funds')
 
+            }
+            else if (userData.accountBalance < TransferAmount.value){
+                alert('insufficient funds')
+                TransferAmount.value= ''
             }
             else if (BenAccNumber.value != BenName.accountnumber || BenAccNumber.value == '') {
                 alert('Invalid account number')
@@ -1252,6 +1299,13 @@
                     var userRef = db.collection("users").doc(user.email);
                     if (currentAccountBalance < 0) {
                         alert('insufficient funds');
+                        transactPin.style.display = 'none'
+                input1.value = ''
+                input2.value = ''
+                input3.value = ''
+                input4.value = ''
+                dashboardDisplay.style.filter = 'none'
+                transfersDisplay.style.filter = 'none'
                     } else {
                         return userRef.update({
                             accountBalance: Number(currentAccountBalance)
@@ -1262,9 +1316,13 @@
                                         accountBalance.innerHTML = 'N' + doc.data().accountBalance
                                         transferAccountBalance.innerHTML = 'N' + doc.data().accountBalance
                                         console.log("Document successfully updated:", doc.data().accountBalance);
+                                          alert(`You purchased  N${airtimeAmount.value} Airtime` )
                                         airtimeAmount.value = ''
                                         phoneNumberInput.value = ''
+
                                     });
+                                  
+                                    
 
                             })
                             .catch((error) => {
@@ -1284,7 +1342,7 @@
 
             const user = firebase.auth().currentUser;
             var docRef = db.collection("users").doc(user.email)
-            if(doc.data().accountBalance < 0 ){
+            if(userData.accountBalance < 0 ){
                 console.log('insufficient funds');
                 
                
@@ -1319,7 +1377,7 @@
                 .then((doc) => {
 
             if(doc.data().accountBalance < TransferAmount.value){
-                console.log('enter valid amount brr');
+                console.log('insufficient funds');
                 return
                 
                
